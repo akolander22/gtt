@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="gttApp">
+  <head>
+    <meta charset="utf-8">
+    <title>GTT Challenge</title>
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/stylesheet.css">
+
+
+    <script src="vendors/angular/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/gttmodule.js" charset="utf-8"></script>
+    <script src="scripts/MainController.js" charset="utf-8"></script>
+
+
+  </head>
+  <body ng-controller="MainController as main">
+    <div class="title">
+      <h1>Weather World</h1>
+      <h3>Find Local Weather</h3>
+    </div>
+
+        <form ng-submit="submit()">
+
+          <div class="input">
+            <input class="form-control input-lg" type="text" ng-model="main.entry" placeholder="City Name, Zip Code, Etc." />
+            <br />
+            <button type="submit" ng-click="main.findWeather()"class="btn btn-primary center-block">Search</button>
+            <br />
+          </div>
+        </form>
+
+        <div class="display" ng-if="main.weatherFound">
+          <h1>{{main.weatherCity}}</h1>
+            <h2>Current Temperature: {{main.weatherTemp}}&deg</h2>
+            <h3>Weather is Currently: {{main.weatherDesc}}</h3>
+              <p> Wind Speed : {{main.weatherWindSpeed}}mph</p>
+
+            <form ng-submit="submit()">
+
+              <div class="input">
+                <label for="Search Again">Search Another City</label>
+                <input class="form-control input-lg" type="text" ng-model="main.entry2" placeholder="City Name, Zip Code, Etc." />
+                <br />
+                <button type="submit" ng-click="main.findWeather2()"class="btn btn-primary">Search</button>
+                <br />
+              </div>
+            </form>
+        </div>
+        <div class="display" ng-if="main.weatherFound2">
+          <h1>{{main.weatherCity2}}</h1>
+            <h2>Current Temperature: {{main.weatherTemp2}}&deg</h2>
+            <h3>Weather is Currently: {{main.weatherDesc2}}</h3>
+              <p> Wind Speed : {{main.weatherWindSpeed2}}mph</p>
+
+            <form ng-submit="submit()">
+
+              <div class="input">
+                <label for="Search Again">Search Another City</label>
+                <input class="form-control input-lg" type="text" ng-model="main.entry3" placeholder="City Name, Zip Code, Etc." />
+                <br />
+                <button type="submit" ng-click="main.findWeather3()"class="btn btn-primary">Search</button>
+                <br />
+              </div>
+            </form>
+        </div>
+        <div class="display" ng-if="main.weatherFound3">
+          <h1>{{main.weatherCity3}}</h1>
+            <h2>Current Temperature: {{main.weatherTemp3}}&deg</h2>
+            <h3>Weather is Currently: {{main.weatherDesc3}}</h3>
+              <p> Wind Speed : {{main.weatherWindSpeed3}}mph</p>
+
+              <p>
+                No More Weather's Available, Refresh Page and Start Again
+              </p>
+        </div>
+
+  </body>
+</html>
